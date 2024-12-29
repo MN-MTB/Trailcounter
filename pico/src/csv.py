@@ -5,7 +5,7 @@ def create_csv_file(filename: str, headers: list) -> bool:
         if file_exists(filename):
             return True
         
-        headers_string = ", ".join(headers)
+        headers_string = ",".join(headers)
         with open(filename, "w") as f:
             f.write(f"{headers_string}\n")
     except Exception as e:

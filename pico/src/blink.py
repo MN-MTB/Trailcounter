@@ -1,15 +1,14 @@
-from machine import Pin, Timer
+from machine import Pin
+import time
 
 led = Pin(25, Pin.OUT)
-led_state = True
-timer = Timer()
 
-def tick(timer: Timer) -> None:
-    global led_state, led
-    led_state = not led_state
-    led.value(led_state)
-    #machine.lightsleep(1000)
-    
-timer.init(freq=1, mode=Timer.PERIODIC, callback=tick)
+def blink(n: int) -> None:
+    for _ in range(n):
+        led.value(1)
+        time.sleep(0.2)
+        led.value(0)
+        time.sleep(0.2)
+
     
     
